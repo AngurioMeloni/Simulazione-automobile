@@ -9,56 +9,69 @@ namespace simulazione_automobile
     internal class Car
     {
         //da 0 a 100, 6 marce
-        protected int _vel;
+        protected int vel;
 
         //6 marce diverse
-        protected int _marcia;
+        protected int marcia;
 
         //booleano accensione
-        protected bool _acc;
+        protected bool acc;
 
         //Attributo che servirà a calcolare aìl'accelerazione
-        protected int _limit;
+        protected int limit;
 
         //attributo che serve a calcolare la decellerazione 
-        protected int _total;
+        protected int total;
 
         public Car()
         {
-            Vel = 0;
+            Velocità = 0;
             Marcia = 0;
-            Acc = false;
+            Accens = false;
             Limit = 0;
         }
-        #region get e set
-        public int Vel
+        public bool Accensione()
         {
-            get { return _vel; }
-            set { _vel = value; }
+            if (Accens == true && Velocità == 0)
+            {
+                Accens = false;
+            }
+            else if (Velocità == 0)
+            {
+                Accens = true;
+            }
+            return Accens;
+        }
+
+        #region get e set
+        public int Velocità
+        {
+            get { return vel; }
+            set { vel = value; }
         }
 
         public int Marcia
         {
-            get { return _marcia; }
-            set { _marcia = value; }
+            get { return marcia; }
+            set { marcia = value; }
         }
 
-        public bool Acc
+        public bool Accens
         {
-            get { return _acc; }
-            set { _acc = value; }
+            get { return acc; }
+            set { acc = value; }
         }
 
         public int Limit
         {
-            get { return _limit; }
-            set { _limit = value; }
+            get { return limit; }
+            set { limit = value; }
         }
 
         public int Total
         {
-            get { return _total; }
-            set { _total = value; }
+            get { return total; }
+            set { total = value; }
         }
         #endregion
     }
