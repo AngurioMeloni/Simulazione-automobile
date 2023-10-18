@@ -47,11 +47,11 @@ namespace simulazione_automobile
         {
 
             if (!Accens) { return false; }
-            if (Velocità <= 100 && m > 4) { Limit = 100 - Velocità; return true; }
-            else if (Velocità <= 80 && m > 3) { Limit = 80 - Velocità; return true; }
-            else if (Velocità <= 60 && m > 2) { Limit = 60 - Velocità; return true; }
-            else if (Velocità <= 40 && m > 1) { Limit = 40 - Velocità; return true; }
-            else if (Velocità <= 20 && m > 0) { Limit = 20 - Velocità; return true; }
+            if (Velocità <= 240 && m > 4) { Limit = 240- Velocità; return true; }
+            else if (Velocità <= 180 && m > 3) { Limit = 180 - Velocità; return true; }
+            else if (Velocità <= 160 && m > 2) { Limit = 160 - Velocità; return true; }
+            else if (Velocità <= 140 && m > 1) { Limit = 140 - Velocità; return true; }
+            else if (Velocità <= 100 && m > 0) { Limit = 100 - Velocità; return true; }
             else if (m == 0) { Limit = -20 - Velocità; return true; }
             return false;
         }
@@ -65,37 +65,49 @@ namespace simulazione_automobile
             }
             if (Marcia == 1)
             {
-                if (Velocità < 20) { Velocità += Limit / 3; if (Velocità > 20) { Velocità = 20; } }
-                else { Velocità = 20; }
+                if (Velocità < 100) { Velocità += Limit / 2; if (Velocità > 100) { Velocità = 100; } }
+                else { Velocità = 100; }
             }
             else if (Marcia == 2)
             {
-                if (Vel < 40) { Vel += Limit / 3; if (_vel > 40) { _vel = 40; } }
-                else { Vel = 40; }
+                if (Velocità < 140) { Velocità += Limit / 2; if (vel > 140) { vel = 140; } }
+                else { Velocità = 140; }
             }
             else if (Marcia == 3)
             {
-                if (Vel < 60) { Vel += Limit / 3; if (_vel > 60) { Vel = 60; } }
-                else { Vel = 60; }
+                if (Velocità < 180) { Velocità += Limit / 2; if (vel > 180) { Velocità = 180; } }
+                else { Velocità = 180; }
             }
             else if (Marcia == 4)
             {
-                if (Vel < 80) { _vel += Limit / 3; if (Vel > 80) { Vel = 80; } }
-                else { Vel = 80; }
+                if (Velocità < 240) { vel += Limit / 2; if (Velocità > 240) { Velocità = 240; } }
+                else { Velocità = 80; }
             }
             else if (Marcia == 5)
             {
-                if (Vel < 100) { _vel += Limit / 3; if (Vel > 100) { Vel = 100; } }
-                else { Vel = 100; }
+                if (Velocità < 300) { vel += Limit / 2; if (Velocità > 300) { Velocità = 300; } }
+                else { Velocità = 300; }
+            }
+            else if (Marcia == 6)
+            {
+                if (Velocità < 360) { vel += Limit / 2; if (Velocità > 360) { Velocità = 360; } }
+                else { Velocità = 360; }
             }
             else if (Marcia == 0)
             {
-                if (Vel > -20) { Vel += Limit / 3; if (Vel < -20) { Vel = -20; } }
+                if (Velocità > -80) { Velocità += Limit / 2; if (Velocità < -80) { Velocità = -80; } }
             }
 
-            Total = Vel;
+                Total = Velocità;
         }
-
+        public void decellerazione()
+        {
+            Velocità -= Total / 5;
+            if (Velocità < 0)
+            {
+                Velocità = 0;
+            }
+        }
 
 
         #region get e set
