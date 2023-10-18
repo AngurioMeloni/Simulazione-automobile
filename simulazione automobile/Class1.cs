@@ -58,47 +58,40 @@ namespace simulazione_automobile
 
         public void accellerazione()
         {
-            //verifico che la macchina sia accesa prima di poter accellerare
             if (!Accens)
             {
                 return;
             }
             if (Marcia == 1)
             {
-                if (Velocità < 100) { Velocità += Limit / 2; if (Velocità > 100) { Velocità = 100; } }
-                else { Velocità = 100; }
+                if (Velocità < 100) Velocità += (Total / 100) * 95;
             }
             else if (Marcia == 2)
             {
-                if (Velocità < 140) { Velocità += Limit / 2; if (vel > 140) { vel = 140; } }
-                else { Velocità = 140; }
+                if (Velocità < 140) Velocità += (Total / 100) * 85;
             }
             else if (Marcia == 3)
             {
-                if (Velocità < 180) { Velocità += Limit / 2; if (vel > 180) { Velocità = 180; } }
-                else { Velocità = 180; }
+                if (Velocità < 180) Velocità += (Total / 100) * 75;
             }
             else if (Marcia == 4)
             {
-                if (Velocità < 240) { vel += Limit / 2; if (Velocità > 240) { Velocità = 240; } }
-                else { Velocità = 80; }
+                if (Velocità < 240) Velocità += (Total / 100) * 65;
             }
             else if (Marcia == 5)
             {
-                if (Velocità < 300) { vel += Limit / 2; if (Velocità > 300) { Velocità = 300; } }
-                else { Velocità = 300; }
+                if (Velocità < 140) Velocità += (Total / 100) * 60;
             }
             else if (Marcia == 6)
             {
-                if (Velocità < 360) { vel += Limit / 2; if (Velocità > 360) { Velocità = 360; } }
-                else { Velocità = 360; }
+                if (Velocità < 360) Velocità += (Total / 100) * 50;
             }
             else if (Marcia == 0)
             {
-                if (Velocità > -80) { Velocità += Limit / 2; if (Velocità < -80) { Velocità = -80; } }
+                if (Velocità <= 0) Velocità += -10;
             }
 
-                Total = Velocità;
+            Total = Velocità;
         }
         public void decellerazione()
         {

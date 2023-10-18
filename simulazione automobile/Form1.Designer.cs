@@ -40,6 +40,9 @@
             button10 = new Button();
             label1 = new Label();
             textBox1 = new TextBox();
+            button11 = new Button();
+            button12 = new Button();
+            label2 = new Label();
             SuspendLayout();
             // 
             // button1
@@ -149,11 +152,42 @@
             textBox1.Size = new Size(120, 27);
             textBox1.TabIndex = 11;
             // 
+            // button11
+            // 
+            button11.Location = new Point(358, 68);
+            button11.Name = "button11";
+            button11.Size = new Size(27, 95);
+            button11.TabIndex = 12;
+            button11.Text = "Acce";
+            button11.UseVisualStyleBackColor = true;
+            // 
+            // button12
+            // 
+            button12.Location = new Point(391, 68);
+            button12.Name = "button12";
+            button12.Size = new Size(27, 95);
+            button12.TabIndex = 13;
+            button12.Text = "Freno";
+            button12.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(469, 10);
+            label2.Name = "label2";
+            label2.Size = new Size(50, 20);
+            label2.TabIndex = 14;
+            label2.Text = "label2";
+            label2.Click += label2_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(914, 600);
+            Controls.Add(label2);
+            Controls.Add(button12);
+            Controls.Add(button11);
             Controls.Add(textBox1);
             Controls.Add(label1);
             Controls.Add(button10);
@@ -188,5 +222,8 @@
         private Button button10;
         private Label label1;
         private TextBox textBox1;
+        private Button button11;
+        private Button button12;
+        private Label label2;
     }
 }
