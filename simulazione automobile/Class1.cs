@@ -43,6 +43,20 @@ namespace simulazione_automobile
             return Accens;
         }
 
+        public bool ControlloMarcia(int m)
+        {
+
+            if (!Accens) { return false; }
+            if (Velocità <= 100 && m > 4) { Limit = 100 - Velocità; return true; }
+            else if (Velocità <= 80 && m > 3) { Limit = 80 - Velocità; return true; }
+            else if (Velocità <= 60 && m > 2) { Limit = 60 - Velocità; return true; }
+            else if (Velocità <= 40 && m > 1) { Limit = 40 - Velocità; return true; }
+            else if (Velocità <= 20 && m > 0) { Limit = 20 - Velocità; return true; }
+            else if (m == 0) { Limit = -20 - Velocità; return true; }
+            return false;
+        }
+
+
         #region get e set
         public int Velocità
         {
