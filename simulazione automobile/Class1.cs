@@ -56,6 +56,47 @@ namespace simulazione_automobile
             return false;
         }
 
+        public void accellerazione()
+        {
+            //verifico che la macchina sia accesa prima di poter accellerare
+            if (!Accens)
+            {
+                return;
+            }
+            if (Marcia == 1)
+            {
+                if (Velocità < 20) { Velocità += Limit / 3; if (Velocità > 20) { Velocità = 20; } }
+                else { Velocità = 20; }
+            }
+            else if (Marcia == 2)
+            {
+                if (Vel < 40) { Vel += Limit / 3; if (_vel > 40) { _vel = 40; } }
+                else { Vel = 40; }
+            }
+            else if (Marcia == 3)
+            {
+                if (Vel < 60) { Vel += Limit / 3; if (_vel > 60) { Vel = 60; } }
+                else { Vel = 60; }
+            }
+            else if (Marcia == 4)
+            {
+                if (Vel < 80) { _vel += Limit / 3; if (Vel > 80) { Vel = 80; } }
+                else { Vel = 80; }
+            }
+            else if (Marcia == 5)
+            {
+                if (Vel < 100) { _vel += Limit / 3; if (Vel > 100) { Vel = 100; } }
+                else { Vel = 100; }
+            }
+            else if (Marcia == 0)
+            {
+                if (Vel > -20) { Vel += Limit / 3; if (Vel < -20) { Vel = -20; } }
+            }
+
+            Total = Vel;
+        }
+
+
 
         #region get e set
         public int Velocità
