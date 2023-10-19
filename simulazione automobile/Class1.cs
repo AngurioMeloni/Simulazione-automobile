@@ -83,19 +83,19 @@ namespace simulazione_automobile
             }
             else if (Marcia == 4)
             {
-                if (Velocità < 240) { vel += Limit / 2;
+                if (Velocità < 240) { Velocità += Limit / 2;
                 if (Velocità > 240) { Velocità = 240; } }
                 else { Velocità = 240; }
             }
             else if (Marcia == 5)
             {
-                if (Velocità < 300) { vel += Limit / 2; 
+                if (Velocità < 300) { Velocità += Limit / 2; 
                 if (Velocità > 300) { Velocità = 300; } }
                 else { Velocità = 300; }
             }
             else if (Marcia == 6)
             {
-                if (Velocità < 360) { vel += Limit / 2; 
+                if (Velocità < 360) { Velocità += Limit / 2; 
                 if (Velocità > 360) { Velocità = 360; } }
                 else { Velocità = 360; }
             }
