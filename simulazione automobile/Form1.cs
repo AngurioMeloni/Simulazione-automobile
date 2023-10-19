@@ -8,11 +8,12 @@ namespace simulazione_automobile
         public Form1()
         {
             InitializeComponent();
+            car = new Car();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            car = new Car();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -118,7 +119,7 @@ namespace simulazione_automobile
         private void button12_Click(object sender, EventArgs e)
         {
             car.decellerazione();
-            label2.Text = car.Velocità.ToString();
+            label2.Text = car.Velocità.ToString() + "km/h";
         }
 
         private void label2_Click(object sender, EventArgs e)

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace simulazione_automobile
 {
-    internal class Car
+    public class Car
     {
-        //da 0 a 100, 6 marce
+        //da 0 a 360, 6 marce
         protected int vel;
 
         //6 marce diverse
@@ -47,12 +47,13 @@ namespace simulazione_automobile
         {
 
             if (!Accens) { return false; }
-            if (Velocità <= 240 && m > 4) { Limit = 240- Velocità; return true; }
+            if (Velocità <= 300 && m > 5) { Limit = 300 - Velocità; return true; }
+            else if (Velocità <= 240 && m > 4) { Limit = 240- Velocità; return true; }
             else if (Velocità <= 180 && m > 3) { Limit = 180 - Velocità; return true; }
             else if (Velocità <= 160 && m > 2) { Limit = 160 - Velocità; return true; }
             else if (Velocità <= 140 && m > 1) { Limit = 140 - Velocità; return true; }
             else if (Velocità <= 100 && m > 0) { Limit = 100 - Velocità; return true; }
-            else if (m == 0) { Limit = -20 - Velocità; return true; }
+            else if (m == 0) { Limit = -80 - Velocità; return true; }
             return false;
         }
 
@@ -64,38 +65,51 @@ namespace simulazione_automobile
             }
             if (Marcia == 1)
             {
-                if (Velocità < 100) Velocità += (Total / 100) * 95;
+                if (Velocità < 100) { Velocità += Limit / 2; 
+                if (Velocità > 100) { Velocità = 100; } }
+                else { Velocità = 100; }
             }
             else if (Marcia == 2)
             {
-                if (Velocità < 140) Velocità += (Total / 100) * 85;
+                if (Velocità < 140) { Velocità += Limit / 2; 
+                if (vel > 140) { vel = 140; } }
+                else { Velocità = 140; }
             }
             else if (Marcia == 3)
             {
-                if (Velocità < 180) Velocità += (Total / 100) * 75;
+                if (Velocità < 180) { Velocità += Limit / 2;
+                if (vel > 180) { Velocità = 180; } }
+                else { Velocità = 180; }
             }
             else if (Marcia == 4)
             {
-                if (Velocità < 240) Velocità += (Total / 100) * 65;
+                if (Velocità < 240) { vel += Limit / 2;
+                if (Velocità > 240) { Velocità = 240; } }
+                else { Velocità = 240; }
             }
             else if (Marcia == 5)
             {
-                if (Velocità < 140) Velocità += (Total / 100) * 60;
+                if (Velocità < 300) { vel += Limit / 2; 
+                if (Velocità > 300) { Velocità = 300; } }
+                else { Velocità = 300; }
             }
             else if (Marcia == 6)
             {
-                if (Velocità < 360) Velocità += (Total / 100) * 50;
+                if (Velocità < 360) { vel += Limit / 2; 
+                if (Velocità > 360) { Velocità = 360; } }
+                else { Velocità = 360; }
             }
             else if (Marcia == 0)
             {
-                if (Velocità <= 0) Velocità += -10;
+                if (Velocità > -80) { Velocità += Limit / 2; 
+                if (Velocità < -80) { Velocità = -80; } }
             }
 
             Total = Velocità;
         }
         public void decellerazione()
         {
-            Velocità -= Total / 5;
+            Velocità -= Total / 4;
             if (Velocità < 0)
             {
                 Velocità = 0;
