@@ -48,7 +48,7 @@ namespace simulazione_automobile
 
             if (!Accens) { return false; }
             if (Velocità <= 300 && m > 5) { Limit = 300 - Velocità; return true; }
-            else if (Velocità <= 240 && m > 4) { Limit = 240- Velocità; return true; }
+            else if (Velocità <= 240 && m > 4) { Limit = 240 - Velocità; return true; }
             else if (Velocità <= 180 && m > 3) { Limit = 180 - Velocità; return true; }
             else if (Velocità <= 160 && m > 2) { Limit = 160 - Velocità; return true; }
             else if (Velocità <= 140 && m > 1) { Limit = 140 - Velocità; return true; }
@@ -71,8 +71,8 @@ namespace simulazione_automobile
             }
             else if (Marcia == 2)
             {
-                if (Velocità < 140) { Velocità += Limit / 2; 
-                if (vel > 140) { vel = 140; } }
+                if (Velocità < 140) { vel += Limit / 2; 
+                if (vel > 140) { Velocità = 140; } }
                 else { Velocità = 140; }
             }
             else if (Marcia == 3)
@@ -83,8 +83,8 @@ namespace simulazione_automobile
             }
             else if (Marcia == 4)
             {
-                if (Velocità < 240) { Velocità += Limit / 2;
-                if (Velocità > 240) { Velocità = 240; } }
+                if (Velocità < 240) { vel += Limit / 2;
+                if (vel > 240) { Velocità = 240; } }
                 else { Velocità = 240; }
             }
             else if (Marcia == 5)
